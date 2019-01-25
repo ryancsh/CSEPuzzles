@@ -15,11 +15,19 @@ class Main{
 
   void solve(){
     StringBuilder s = new StringBuilder();
+    int count = 0;
     for(int i = 0; i < numbers.size(); i++){
       char c = (char)(numbers.get(i).intValue());
       if(symbols.get(i) != '.' && symbols.get(i) != c) throw new RuntimeException("mismatch, wrong algorithm");
+      while((int) c > 127){
+        c = (char)(c - 127);
+      }
       s.append(c);
-      System.out.println(c);
+      count++;
+      if(count == 16){
+        s.append('\n');
+        count = 0;
+      }
     }
     System.out.println(s);
   }
