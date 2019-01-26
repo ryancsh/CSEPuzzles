@@ -20,7 +20,7 @@ class Main{
       char c = (char)(numbers.get(i).intValue());
       if(symbols.get(i) != '.' && symbols.get(i) != c) throw new RuntimeException("mismatch, wrong algorithm");
       while((int) c > 127){
-        c = (char)(c - 127);
+        c = (char)(c - 96);
       }
       s.append(c);
       count++;
